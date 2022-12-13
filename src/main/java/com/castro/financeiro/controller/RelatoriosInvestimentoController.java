@@ -1,18 +1,18 @@
-package com.castro.financeiro.service;
+package com.castro.financeiro.controller;
 
 import com.castro.financeiro.orm.Investimento;
 import com.castro.financeiro.orm.InvestimentoProjecao;
-import com.castro.financeiro.repository.InvestimentoRepository;
+import com.castro.financeiro.repository.InvestimentosRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class RelatoriosInvestimentoService {
+public class RelatoriosInvestimentoController {
 
-    private final InvestimentoRepository repository;
+    private final InvestimentosRepository repository;
 
-    public RelatoriosInvestimentoService(InvestimentoRepository repository) {
+    public RelatoriosInvestimentoController(InvestimentosRepository repository) {
         this.repository = repository;
     }
 

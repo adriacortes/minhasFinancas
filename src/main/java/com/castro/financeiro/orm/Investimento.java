@@ -1,10 +1,13 @@
 package com.castro.financeiro.orm;
 
+import com.castro.financeiro.dto.InvestimentosDto;
+
 import javax.persistence.*;
-import java.util.Calendar;
+import java.math.BigDecimal;
+import java.time.LocalDate;
 
 @Entity
-@Table(name = "investimento")
+@Table(name = "investimentos")
 public class Investimento {
 
     @Id
@@ -12,49 +15,25 @@ public class Investimento {
     @Column(name = "id", nullable = false)
     private Integer id;
     private String descricao;
-    private Double valor;
+    private BigDecimal valor;
+    private LocalDate dataAplicacao;
 
-    Calendar data = Calendar.getInstance();
-
-    public Integer getId() {
-        return id;
+    public Investimento() {
     }
 
-    public void setId(Integer id) {
+    public Investimento(InvestimentosDto dadosInvestimento) {
+        this.descricao = dadosInvestimento.getDescricao();
+        this.valor = dadosInvestimento.getValor();
+        this.dataAplicacao = dadosInvestimento.getDataAplicacao();
+    }
+
+    public Investimento(Integer id,InvestimentosDto dadosInvestimento ) {
         this.id = id;
+        this.descricao = dadosInvestimento.getDescricao();
+        this.valor = dadosInvestimento.getValor();
+        this.dataAplicacao = dadosInvestimento.getDataAplicacao();
     }
 
-    public String getDescricao() {
-        return descricao;
-    }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
 
-    public Double getValor() {
-        return valor;
-    }
-
-    public void setValor(Double valor) {
-        this.valor = valor;
-    }
-
-    public Calendar getData() {
-        return data;
-    }
-
-    public void setData(Calendar data) {
-        this.data = data;
-    }
-
-    @Override
-    public String toString() {
-        return "Investimento{" +
-                "id=" + id +
-                ", descricao='" + descricao + '\'' +
-                ", valor=" + valor +
-                ", data=" + data +
-                '}';
-    }
 }
