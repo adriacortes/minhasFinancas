@@ -8,7 +8,7 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 @Entity
-@Table(name = "despesas")
+@Table(name = "despesa")
 public class Despesa {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,10 +19,11 @@ public class Despesa {
     private  String formaDePagamento;
     private Integer parcelas;
     private LocalDate dataVencimento;
+
+    @Enumerated(EnumType.STRING)
     private Status statusPagamento;
 
     public Despesa() {}
-
 
     public Despesa(Integer id, DespesasDto dadosDespesas) {
         this.id = id;

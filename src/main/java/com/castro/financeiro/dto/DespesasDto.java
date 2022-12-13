@@ -3,6 +3,8 @@ package com.castro.financeiro.dto;
 
 import com.castro.financeiro.orm.Status;
 
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 

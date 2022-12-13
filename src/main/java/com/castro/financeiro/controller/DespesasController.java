@@ -20,6 +20,7 @@ public class DespesasController {
     @PostMapping
     public void cadastrar(@Validated @RequestBody DespesasDto dadosDespesas){
         despesasRepository.save(new Despesa(dadosDespesas));
+        //System.out.println(dadosDespesas.getStatusPagamento());
     }
 
     @PutMapping(path = "/{id}")
